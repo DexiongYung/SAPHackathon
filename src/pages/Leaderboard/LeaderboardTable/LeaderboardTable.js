@@ -1,11 +1,10 @@
 import React from 'react';
-import classes from './LeaderboardTable.css';
+import Classes from './LeaderboardTable.css';
 import LeaderboardPlayer from '../LeaderboardPlayer/LeaderboardPlayer';
 
 
 const leaderboardTable = (props) => (
-    <ul>
-        <div>BLAH BLAH</div>
+    <ul className={Classes.LeaderboardTable}>
         <LeaderboardPlayer rank="#1">Jason Yoo</LeaderboardPlayer>
     </ul>
 );

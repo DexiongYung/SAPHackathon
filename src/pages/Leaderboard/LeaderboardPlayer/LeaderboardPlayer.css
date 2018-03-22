@@ -1,8 +1,11 @@
 .LeaderboardPlayer {
-    margin: 0;
-    box-sizing: border-box;
-    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    width:90%;
     height: 100%;
-    width: 100%;
-    align-content: center
+    padding: 20px 10px;
+    background-color: aqua;
+    box-sizing: border-box;
+    display: block;
 }

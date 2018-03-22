@@ -2,7 +2,10 @@ import React from 'react';
 import classes from './LeaderboardPlayer.css';
 
 const leaderboardplayer = (props) => (
-    <div> {props.child} </div>
+    <li className={classes.LeaderboardPlayer}>
+        <a>{props.rank}</a>
+        <a>{props.children}</a>
+    </li>
 );
 
 export default leaderboardplayer
