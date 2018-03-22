@@ -8,8 +8,7 @@ export class NavigationItem extends React.Component {
 	}
 
 	onClick(e) {
-		const itemName = e.target.text;
-		this.props.onClick(itemName);
+		this.props.onClick(this.props.children);
 	}
 
 	render() {

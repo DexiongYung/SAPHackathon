@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Toolbar from '../Navigation/Toolbar/Toolbar'
-import classes from './Layout.css'
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import classes from './Layout.css';
+import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Leaderboard from '../../pages/Leaderboard/Leaderboard'
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
 
@@ -12,20 +13,21 @@ class Layout extends Component {
             showSideDrawer: false,
             onPage: "Home"
         };
+        this.renderContent = this.renderContent.bind(this);
     }
 
     onNavClick = (pageName) => {
         this.setState({onPage: pageName})
     }
 
-    renderContent = () => {
+    renderContent() {
         switch (this.state.onPage) {
             case "Profile":
                 //return <Profile />
             case "MeetUp":
                 //return <MeetUp />
             case "Leaderboard":
-                //return <Leaderboard />
+                return <Leaderboard />;
             case "Events":
                 //return <Events />
             default:
@@ -54,9 +56,9 @@ class Layout extends Component {
                     closed={this.sideDrawerClosedHandler}
                     onClick={this.onNavClick}
                     />
-                {this.renderContent};
+                {this.renderContent()};
             </div>
-        )
+        );
     }
 }
 
