@@ -5,7 +5,7 @@ import LeaderboardPlayer from '../LeaderboardPlayer/LeaderboardPlayer';
 
 const leaderboardTable = (props) => (
     <ul className={Classes.LeaderboardTable}>
-        <LeaderboardPlayer rank="#1">Jason Yoo</LeaderboardPlayer>
+        <LeaderboardPlayer rank="1">Jason Yoo</LeaderboardPlayer>
     </ul>
 );
 
