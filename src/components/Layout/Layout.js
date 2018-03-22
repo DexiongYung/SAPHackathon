@@ -3,9 +3,34 @@ import Toolbar from '../Navigation/Toolbar/Toolbar'
 import classes from './Layout.css'
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
 
+// const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
+
 class Layout extends Component {
-    state = {
-        showSideDrawer: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            showSideDrawer: false,
+            onPage: "Home"
+        };
+    }
+
+    onNavClick = (pageName) => {
+        this.setState({onPage: pageName})
+    }
+
+    renderContent = () => {
+        switch (this.state.onPage) {
+            case "Profile":
+                //return <Profile />
+            case "MeetUp":
+                //return <MeetUp />
+            case "Leaderboard":
+                //return <Leaderboard />
+            case "Events":
+                //return <Events />
+            default:
+                //return <Home />
+        }
     }
 
     sideDrawerClosedHandler = () => {
@@ -26,10 +51,10 @@ class Layout extends Component {
                 <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
                 <SideDrawer
                     open={this.state.showSideDrawer}
-                    closed={this.sideDrawerClosedHandler}/>
-                <main className={classes.Content}>
-                    {this.props.children}
-                </main>
+                    closed={this.sideDrawerClosedHandler}
+                    onClick={this.onNavClick}
+                    />
+                {this.renderContent};
             </div>
         )
     }
