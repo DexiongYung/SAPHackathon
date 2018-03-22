@@ -1,0 +1,10 @@
+.Logo {
+    background-color: white;
+    height: 100%;
+    margin:auto;
+    vertical-align:middle;
+}
+
+.Logo img {
+    height: 100%;
+}
