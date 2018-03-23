@@ -1,0 +1,17 @@
+.Events{
+    margin-top: 60px;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.EventImg{
+	height: 500px;
+	width: 96%;
+	padding-left: 30px;
+}
+
+.EmptyDiv{
+	height: 20px;
+	width: 96%;
+}

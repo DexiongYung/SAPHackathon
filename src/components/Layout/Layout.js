@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Leaderboard from '../../pages/Leaderboard/Leaderboard';
 import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts'
+import Events from '../../pages/Events/Events';
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
 
@@ -12,15 +13,21 @@ class Layout extends Component {
     constructor(props) {
         super(props);
         this.database = firebase.database();
-        this.gameRoomRef = this.database.ref('GameRoom');
+        this.gameRoomRef = this
+            .database
+            .ref('GameRoom');
 
         var that = this;
-        this.gameRoomRef.on('value', function(snapshot) {
-            if (snapshot.val()){
-                alert("Someone has challenged you!");
-                that.gameRoomRef.set(false);
-            }
-        })
+        this
+            .gameRoomRef
+            .on('value', function (snapshot) {
+                if (snapshot.val()) {
+                    alert("Someone has challenged you!");
+                    that
+                        .gameRoomRef
+                        .set(false);
+                }
+            })
 
         this.state = {
             showSideDrawer: false,
@@ -42,11 +49,11 @@ class Layout extends Component {
             case "Leaderboard":
                 return <Leaderboard/>;
             case "Events":
-                //return <Events />
+                return <Events/>
             case "Current Reservations":
                 return <ReservedConflicts/>
             default:
-                //return <Home />
+                return <Events/>
         }
     }
 
