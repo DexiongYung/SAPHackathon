@@ -28,8 +28,11 @@ class Layout extends Component {
                         .database
                         .ref('GamesRoom/Game');
                     GameRef.once('value', function(snapshot) {
-                        var gameType = snapshot.val();
-                        alert("Someone has challenged you to " + gameType + "!");
+                        var gameMsg = snapshot.val().split("-");
+                        var gameType = gameMsg[0]
+                        var gameTime = gameMsg[1]
+                        alert("Someone has challenged you to play a game of " 
+                            + gameType + " at " + gameTime + "!");
                     })
                     that
                         .notifyRef
@@ -75,6 +78,10 @@ class Layout extends Component {
                 showSideDrawer: !prevState.showSideDrawer
             };
         });
+    }
+
+    componentWillUnmount() {
+        this.notifyRef.off();
     }
 
     render() {

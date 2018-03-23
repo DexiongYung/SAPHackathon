@@ -13,25 +13,23 @@ export default class LeaderboardTable extends Component {
 		this.populatePlayers = this.populatePlayers.bind(this);
 
 		this.database = firebase.database();
+		this.ref = this.database.ref('Users');
 
 		this.listenChange();
 	}
 
 	listenChange() {
-		const usersRef = this.database.ref('Users');
-		usersRef.on('value', function(snapshot) {
+		this.ref.on('value', function(snapshot) {
 			this.setState({updateListener: !this.state.updateListener});
 		}.bind(this));
 	}
 
 	populatePlayers() {
-		const usersRef = this.database.ref('Users');
 		let userComponents;
-		usersRef.once('value', function(snapshot) {
+		this.ref.once('value', function(snapshot) {
 			const usersList = snapshot.val();
 			debugger
 			userComponents = Object.keys(usersList).map((userKey, i) => {
-				debugger
 				// Random status
 				var status = Math.floor(Math.random() + 0.5);
 				if (i == 0) {
@@ -42,6 +40,10 @@ export default class LeaderboardTable extends Component {
 		}.bind(this));
 		return userComponents
 	}
+
+	componentWillUnmount() {
+    	this.ref.off();
+    }
 
 	render() {
 		return (

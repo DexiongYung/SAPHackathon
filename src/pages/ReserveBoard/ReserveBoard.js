@@ -34,18 +34,18 @@ class ReserveBoard extends Component {
 
 	populateTime() {
 		const times = [
-		'9:00 AM', '9:30AM',
-		'10:00 AM', '10:30AM',
-		'11:00 AM', '11:30AM',
-		'12:00 PM', '12:30PM',
-		'1:00 PM', '1:30PM',
-		'2:00 PM', '2:30PM',
-		'3:00 PM', '3:30PM',
-		'4:00 PM', '4:30PM',
-		'5:00 PM', '5:30PM',
-		'6:00 PM', '6:30PM',
-		'7:00 PM', '7:30PM',
-		'8:00 PM', '8:30PM',
+		'9:00 AM', '9:30 AM',
+		'10:00 AM', '10:30 AM',
+		'11:00 AM', '11:30 AM',
+		'12:00 PM', '12:30 PM',
+		'1:00 PM', '1:30 PM',
+		'2:00 PM', '2:30 PM',
+		'3:00 PM', '3:30 PM',
+		'4:00 PM', '4:30 PM',
+		'5:00 PM', '5:30 PM',
+		'6:00 PM', '6:30 PM',
+		'7:00 PM', '7:30 PM',
+		'8:00 PM', '8:30 PM',
 		];
 		const components = times.map((time, i) => {
 			return <option key={i}>{time}</option>
@@ -74,7 +74,7 @@ class ReserveBoard extends Component {
 		// For Demo Purpose Only
 		const gamesRoomRef = this.database.ref('GamesRoom');
 		gamesRoomRef.set({
-			"Game": gameType.value,
+			"Game": gameType.value + "-" + timeRange.value,
 			"Notify": true
 		});
 	}
@@ -85,13 +85,13 @@ class ReserveBoard extends Component {
             <div className={classes.ReserveBoard}>
                 <img className={classes.Toolbar} src = {LeaderboardToolbar} alt="toolbar" />
                 <div className="form-group" style={sidePadding}>
-				  <label for="sel1">
+				  <label htmlFor="sel1">
 				  	<h2>
 				  		Please choose the game you're interested in:
 				  	</h2>
 				  </label>
 				  {this.populateGame()}
-				  <label for="sel2">
+				  <label htmlFor="sel2">
 				  	<h2>
 				  		Please choose the time you wish to play the game:
 				  	</h2>
