@@ -13,18 +13,25 @@ class Layout extends Component {
     constructor(props) {
         super(props);
         this.database = firebase.database();
-        this.gameRoomRef = this
+        this.notifyRef = this
             .database
-            .ref('GameRoom');
-
+            .ref('GamesRoom/Notify');
+        var initial_value = true;
         var that = this;
         this
-            .gameRoomRef
+            .notifyRef
             .on('value', function (snapshot) {
-                if (snapshot.val()) {
-                    alert("Someone has challenged you!");
+                var notify = snapshot.val();
+                if (notify === true) {
+                    var GameRef = that
+                        .database
+                        .ref('GamesRoom/Game');
+                    GameRef.once('value', function(snapshot) {
+                        var gameType = snapshot.val();
+                        alert("Someone has challenged you to " + gameType + "!");
+                    })
                     that
-                        .gameRoomRef
+                        .notifyRef
                         .set(false);
                 }
             })
