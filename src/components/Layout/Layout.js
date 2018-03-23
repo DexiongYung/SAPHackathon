@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import classes from './Layout.css';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
-import Leaderboard from '../../pages/Leaderboard/Leaderboard'
+import Leaderboard from '../../pages/Leaderboard/Leaderboard';
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
 

@@ -1,0 +1,23 @@
+.bg {
+	padding-top: 55px;
+	width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url('../../assets/images/login-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+}
+
+.welcomeBox {
+	border-radius: 10px;
+	background: rgba(115, 74, 179, 0.6);
+    text-align: center;
+    width: 100%;
+    margin: 0 10px 10px;
+    padding: 15px;
+    min-height: 300px;
+}
