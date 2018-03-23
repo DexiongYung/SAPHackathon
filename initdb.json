@@ -1,6 +1,13 @@
 {
 	"Users": {
-		"userone": "Jason Doo :/"
+		"JasonDoo": {
+			"username": "Jason Doo",
+			"winCount": 0,
+			"lostCount" : 0
+		}
 	},
-	"GameRoom": "true"
+	"GamesRoom": {
+		"Game": "empty",
+		"Notify": true
+	}
 }
