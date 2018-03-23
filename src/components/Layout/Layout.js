@@ -4,7 +4,8 @@ import classes from './Layout.css';
 import * as firebase from 'firebase';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Leaderboard from '../../pages/Leaderboard/Leaderboard';
-import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts'
+import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts';
+import ReserveBoard from '../../pages/ReserveBoard/ReserveBoard';
 import Events from '../../pages/Events/Events';
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
@@ -52,7 +53,7 @@ class Layout extends Component {
     renderContent() {
         switch (this.state.onPage) {
             case "Meet Up":
-                return <Leaderboard/>
+                return <ReserveBoard/>;
             case "Leaderboard":
                 return <Leaderboard/>;
             case "Events":
