@@ -46,7 +46,7 @@ export class Login extends Component {
 				<div className={classes.bg}>
 					<div className={classes.welcomeBox}>
 						<h1><br></br><br></br>SAP Game JAM</h1>
-						<h2>Book a Game Room</h2>
+						<h2>Announce your intention to play</h2>
 						<h3>Challenge your friends</h3>
 						<h4>Track your stats</h4>
 						<button className={classes.button} onClick={this.signIn} >Click to Sign In!</button>

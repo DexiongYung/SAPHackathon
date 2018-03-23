@@ -25,6 +25,7 @@
 }
 
 .button {
+    border-radius: 12px;
     background-color: #b784a7; /* Green */
     border: none;
     color: white;
