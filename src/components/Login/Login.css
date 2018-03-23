@@ -19,9 +19,14 @@
     width: 33%;
     margin: 100px 50px 10px 50px;
     padding: 15px;
-    min-height: 500px;
+    min-height: 480px;
     float:right;
     color: white;
+    border: 1.5px solid #b784a7;
+}
+
+.adword{
+    color: gainsboro;
 }
 
 .button {
@@ -34,4 +39,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.button:hover {
+    background-color: #ab799a;
 }
