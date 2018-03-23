@@ -1,0 +1,11 @@
+.Formatting{
+    align-items: start;
+    display: flex;
+    flex-flow: column;
+    margin-top: 55px;
+}
+
+.Toolbar{
+    width:100%;
+    display: flex;
+}

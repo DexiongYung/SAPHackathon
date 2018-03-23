@@ -3,6 +3,7 @@ import Toolbar from '../Navigation/Toolbar/Toolbar';
 import classes from './Layout.css';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Leaderboard from '../../pages/Leaderboard/Leaderboard';
+import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts'
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
 
@@ -23,7 +24,7 @@ class Layout extends Component {
     renderContent() {
         switch (this.state.onPage) {
             case "Profile":
-                //return <Profile />
+                return <ReservedConflicts />
             case "MeetUp":
                 //return <MeetUp />
             case "Leaderboard":
