@@ -19,7 +19,7 @@ export class Login extends Component {
 			this.usersRef = this.database.ref('Users');
 			var that = this;
 			const userName = user.displayName.replace(/\s+/g,'');
-			if (this.usersRef.once('value', function(snapshot) {
+			this.usersRef.once('value', function(snapshot) {
 				if (!snapshot.hasChild(userName)) {
 					that.database.ref('Users/' + userName).set({
 						username: userName,
@@ -27,9 +27,9 @@ export class Login extends Component {
 						loseCount: 0
 					});
 				}
-			}))
+			});
 			window.location.replace(window.location.href + "main");
-			this.props.route.updateUserInfo(userName);
+			this.props.route.changeUserState(userName);
 		}
 	}
 

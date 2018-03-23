@@ -53,15 +53,15 @@ class Layout extends Component {
     renderContent() {
         switch (this.state.onPage) {
             case "Meet Up":
-                return <ReserveBoard/>;
+                return <ReserveBoard userName={this.props.userName}/>;
             case "Leaderboard":
                 return <Leaderboard/>;
             case "Events":
-                return <Events/>
+                return <Events/>;
             case "Current Reservations":
-                return <ReservedConflicts/>
+                return <ReservedConflicts/>;
             default:
-                return <Events/>
+                return <Events/>;
         }
     }
 
@@ -84,7 +84,7 @@ class Layout extends Component {
                 <SideDrawer
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler}
-                    onClick={this.onNavClick}/> {this.renderContent()};
+                    onClick={this.onNavClick}/> {this.renderContent()}
             </div>
         );
     }

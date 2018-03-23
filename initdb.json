@@ -1,7 +1,7 @@
 {
 	"Users": {
 		"JasonDoo": {
-			"username": "Jason Doo",
+			"username": "JasonDoo",
 			"winCount": 0,
 			"lostCount" : 0
 		}
@@ -9,5 +9,5 @@
 	"GamesRoom": {
 		"Game": "empty",
 		"Notify": true
-	}
+	},
 }

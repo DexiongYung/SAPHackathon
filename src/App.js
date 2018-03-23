@@ -24,8 +24,8 @@ class App extends Component {
     return (
       <Router>
       	<div className="App" style={{height: "100%"}}>
-        	<Route exact path='/' component={Login} userState={this.state.userName}/>
-        	<Route exact path='/main' component={Layout} changeUserState={this.changeUserState} />
+        	<Route exact path='/' render={ ()=> <Login userState={this.state.userName} changeUserState={this.changeUserState} />} />
+        	<Route exact path='/main' render={ ()=> <Layout userState={this.state.userName} changeUserState={this.changeUserState} />} />
         </div>
       </Router>
     );
