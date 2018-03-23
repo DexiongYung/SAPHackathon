@@ -28,11 +28,8 @@ class Layout extends Component {
                         .database
                         .ref('GamesRoom/Game');
                     GameRef.once('value', function(snapshot) {
-                        var gameMsg = snapshot.val().split("-");
-                        var gameType = gameMsg[0]
-                        var gameTime = gameMsg[1]
-                        alert("Someone has challenged you to play a game of " 
-                            + gameType + " at " + gameTime + "!");
+                        var gameMsg = snapshot.val();
+                        alert("Someone has challenged you to play a game of " + gameMsg + "!");
                     })
                     that
                         .notifyRef

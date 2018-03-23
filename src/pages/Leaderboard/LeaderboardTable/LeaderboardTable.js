@@ -9,6 +9,7 @@ export default class LeaderboardTable extends Component {
 		this.state = {
 			updateListener: false
 		};
+		this.challenge = this.challenge.bind(this);
 		this.listenChange = this.listenChange.bind(this);
 		this.populatePlayers = this.populatePlayers.bind(this);
 
@@ -16,6 +17,15 @@ export default class LeaderboardTable extends Component {
 		this.ref = this.database.ref('Users');
 
 		this.listenChange();
+	}
+
+	challenge() {
+		// For Demo Purpose Only
+		const gamesRoomRef = this.database.ref('GamesRoom');
+		gamesRoomRef.set({
+			"Game": "Ping Pong",
+			"Notify": true
+		});
 	}
 
 	listenChange() {
@@ -35,7 +45,9 @@ export default class LeaderboardTable extends Component {
 				if (i == 0) {
 					status = "1";
 				}
-				return <LeaderboardPlayer key={i} rank={i+1} status={status.toString()}>{usersList[userKey].username}</LeaderboardPlayer>
+				return <LeaderboardPlayer key={i} rank={i+1} status={status.toString()} onClick={this.challenge}>
+					{usersList[userKey].username}
+				</LeaderboardPlayer>
 			}, this);
 		}.bind(this));
 		return userComponents

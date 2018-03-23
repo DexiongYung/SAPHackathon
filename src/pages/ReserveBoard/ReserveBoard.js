@@ -71,12 +71,6 @@ class ReserveBoard extends Component {
 				}
 			});
 		}
-		// For Demo Purpose Only
-		const gamesRoomRef = this.database.ref('GamesRoom');
-		gamesRoomRef.set({
-			"Game": gameType.value + "-" + timeRange.value,
-			"Notify": true
-		});
 	}
 
     render() {
