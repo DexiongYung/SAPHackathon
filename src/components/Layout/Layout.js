@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import classes from './Layout.css';
+import * as firebase from 'firebase';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Leaderboard from '../../pages/Leaderboard/Leaderboard';
 import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts'
@@ -11,11 +12,30 @@ import Events from '../../pages/Events/Events';
 class Layout extends Component {
     constructor(props) {
         super(props);
+        this.database = firebase.database();
+        this.gameRoomRef = this
+            .database
+            .ref('GameRoom');
+
+        var that = this;
+        this
+            .gameRoomRef
+            .on('value', function (snapshot) {
+                if (snapshot.val()) {
+                    alert("Someone has challenged you!");
+                    that
+                        .gameRoomRef
+                        .set(false);
+                }
+            })
+
         this.state = {
             showSideDrawer: false,
             onPage: "Home"
         };
-        this.renderContent = this.renderContent.bind(this);
+        this.renderContent = this
+            .renderContent
+            .bind(this);
     }
 
     onNavClick = (pageName) => {
@@ -24,16 +44,16 @@ class Layout extends Component {
 
     renderContent() {
         switch (this.state.onPage) {
-            case "Profile":
-                return <ReservedConflicts />
-            case "MeetUp":
-                //return <MeetUp />
+            case "Meet Up":
+                return <Leaderboard/>
             case "Leaderboard":
-                return <Leaderboard />;
+                return <Leaderboard/>;
             case "Events":
-                return <Events />
+                return <Events/>
+            case "Current Reservations":
+                return <ReservedConflicts/>
             default:
-                //return <Home />
+                return <Events/>
         }
     }
 
@@ -56,9 +76,7 @@ class Layout extends Component {
                 <SideDrawer
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler}
-                    onClick={this.onNavClick}
-                    />
-                {this.renderContent()};
+                    onClick={this.onNavClick}/> {this.renderContent()};
             </div>
         );
     }
