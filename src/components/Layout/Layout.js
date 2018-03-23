@@ -4,6 +4,7 @@ import classes from './Layout.css';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Leaderboard from '../../pages/Leaderboard/Leaderboard';
 import ReservedConflicts from '../../pages/ReservedConflicts/ReservedConflicts'
+import Events from '../../pages/Events/Events';
 
 // const pages = ["Home", "MeetUp", "Leaderboard", "Profile", "Events"]
 
@@ -30,7 +31,7 @@ class Layout extends Component {
             case "Leaderboard":
                 return <Leaderboard />;
             case "Events":
-                //return <Events />
+                return <Events />
             default:
                 //return <Home />
         }
