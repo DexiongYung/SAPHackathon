@@ -10,7 +10,7 @@ class LeaderboardPlayer extends Component {
 
     render() {
         return <li className={Classes.LeaderboardPlayer}>
-            <a className={Classes.NameRank}>{this.props.rank}.{this.props.children}</a>
+            <a className={Classes.NameRank}>{this.props.rank}. {this.props.children}</a>
             <a className={Classes.Logo}><img src={this.source} alt="RankStatus"/></a>
             <a className={Classes.Profile}>Profile</a>
             <a className={Classes.Challenge}>Challenge</a>

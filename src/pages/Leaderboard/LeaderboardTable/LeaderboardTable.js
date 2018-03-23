@@ -33,7 +33,10 @@ export default class LeaderboardTable extends Component {
 			userComponents = Object.keys(usersList).map((userKey, i) => {
 				debugger
 				// Random status
-				const status = Math.floor(Math.random() + 0.5);
+				var status = Math.floor(Math.random() + 0.5);
+				if (i == 0) {
+					status = "1";
+				}
 				return <LeaderboardPlayer key={i} rank={i+1} status={status.toString()}>{usersList[userKey].username}</LeaderboardPlayer>
 			}, this);
 		}.bind(this));
