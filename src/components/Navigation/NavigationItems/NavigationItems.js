@@ -11,5 +11,4 @@ const navigationItems = (props) => (
         <NavigationItem onClick={props.onClick}>Sign Out</NavigationItem>
     </ul>
 );
-//!!!TODO link should go to respective pages
 export default navigationItems;
