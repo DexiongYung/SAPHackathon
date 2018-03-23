@@ -7,8 +7,8 @@ const leaderboardplayer = (props) => (
     <li className={Classes.LeaderboardPlayer}>
         <a className={Classes.NameRank}>{props.rank}.{props.children}</a>
         <a className={Classes.Logo}><img src = {RankUp} alt="RankStatus" /></a>
-        <a ClassName={Classes.Profile}>Profile</a>
-        <a ClassName={Classes.Challenge}>Challenge</a>
+        <a className={Classes.Profile}>Profile</a>
+        <a className={Classes.Challenge}>Challenge</a>
     </li>
 );
 

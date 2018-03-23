@@ -1,36 +1,46 @@
 .LeaderboardPlayer {
-    color: black;
-    text-decoration: none;
-    padding: 20px 0px;
+    align-items: center;
     background-color: #B5CFE7;
     border-left: 10px solid #0071BC;
+    color: black;
+    display: flex;
+    height: 3em;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.LeaderboardPlayer > * {
+    margin-left: 0.6em;
+}
+
+.LeaderboardPlayer > *:last-child {
+    margin-left: 0;
+    margin-right: 0.6em;
 }
 
 .Logo {
-    height: 50px;
-    width: 20px;
-    margin-right: 20px;
+    flex: 1;
 }
 
 .Logo img {
-    height: 30px;
-    width: 30px;
+    height: 1em;
+    width: auto;
 }
 
 .NameRank {
-    font-size: 30px;
-    padding: 0px 20px;
-    margin-right: 10px;
-    vertical-align: middle;
+    /* font-size: 30px; */
 }
 
 .Profile {
-    border-left: 5px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     font-size: 15px;
-    vertical-align: middle;
+    padding: 0 0.3em;
 }
 
 .Challenge {
-    text-decoration-color: blue;
+    border-right: 1px solid black;
+    color: blue;
     font-size: 15px;
+    padding: 0 0.3em;
 }
