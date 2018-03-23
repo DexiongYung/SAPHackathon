@@ -5,7 +5,7 @@ import { NavigationItem } from './NavigationItem/NavigationItem';
 const navigationItems = (props) => (
     <ul className={classes.NavigationItems}>
         <NavigationItem onClick={props.onClick}>Profile</NavigationItem>
-        <NavigationItem onClick={props.onClick}>MeetUp</NavigationItem>
+        <NavigationItem onClick={props.onClick}>Meet Up</NavigationItem>
         <NavigationItem onClick={props.onClick}>Leaderboard</NavigationItem>
         <NavigationItem onClick={props.onClick}>Events</NavigationItem>
         <NavigationItem onClick={props.onClick}>Sign Out</NavigationItem>
