@@ -1,14 +1,50 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Classes from './LeaderboardTable.css';
 import LeaderboardPlayer from '../LeaderboardPlayer/LeaderboardPlayer';
+import * as firebase from 'firebase';
 
+export default class LeaderboardTable extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			updateListener: false
+		};
+		this.listenChange = this.listenChange.bind(this);
+		this.populatePlayers = this.populatePlayers.bind(this);
 
-const leaderboardTable = (props) => (
-    <ul className={Classes.LeaderboardTable}>
-        <LeaderboardPlayer rank="1" status="1">Jason Yoo</LeaderboardPlayer>
-        <LeaderboardPlayer rank="2" status="0">Justin Yoon</LeaderboardPlayer>
-        <LeaderboardPlayer rank="3" status="0">Pablo SoftVoice-chan</LeaderboardPlayer>
-    </ul>
-);
+		this.database = firebase.database();
 
-export default leaderboardTable
+		this.listenChange();
+	}
+
+	listenChange() {
+		const usersRef = this.database.ref('Users');
+		usersRef.on('value', function(snapshot) {
+			this.setState({updateListener: !this.state.updateListener});
+		}.bind(this));
+	}
+
+	populatePlayers() {
+		const usersRef = this.database.ref('Users');
+		let userComponents;
+		usersRef.once('value', function(snapshot) {
+			const usersList = snapshot.val();
+			debugger
+			userComponents = Object.keys(usersList).map((userKey, i) => {
+				debugger
+				// Random status
+				const status = Math.floor(Math.random() + 0.5);
+				return <LeaderboardPlayer key={i} rank={i+1} status={status.toString()}>{usersList[userKey].username}</LeaderboardPlayer>
+			}, this);
+		}.bind(this));
+		return userComponents
+	}
+
+	render() {
+		return (
+			<ul className={Classes.LeaderboardTable}>
+		        {this.populatePlayers()}
+		    </ul>
+		)
+	}
+}

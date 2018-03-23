@@ -61,7 +61,6 @@ class ReserveBoard extends Component {
 		const gameType = document.getElementById('sel1');
 		const timeRange = document.getElementById('sel2');
 		if (!!gameType && !!timeRange) {
-			debugger
 			const userName = this.auth.currentUser.displayName;
 			const timesRef = this.database.ref('Times');
 			timesRef.once('value', function(snapshot) {
